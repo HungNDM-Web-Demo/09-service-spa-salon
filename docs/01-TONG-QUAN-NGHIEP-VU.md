@@ -14,7 +14,7 @@
 | Loại sản phẩm | Web quản lý + trang đặt lịch cho khách |
 | Ý tưởng gốc | 3.1 · Spa / salon / nail (`ZDOCS/02-KE-HOACH/DANH-SACH-Y-TUONG.md`) |
 | Người phụ trách | |
-| Trạng thái | Mới tạo từ khuôn mẫu |
+| Trạng thái | Có tài liệu nghiệp vụ (SRS, use case, kịch bản demo, kịch bản kiểm thử), chưa code |
 
 ## 2. Vấn đề của khách hàng
 
@@ -45,12 +45,16 @@
 | Area | Chức năng | Màn hình (route FE dự kiến) | Ưu tiên |
 | :--- | :--- | :--- | :---: |
 | `System` | Đăng nhập, tài khoản, vai trò, cài đặt | Có sẵn | — |
+| `Booking` | Tổng quan trong ngày | `/dashboard` | P1 |
 | `Booking` | Lịch hẹn theo nhân viên | `/appointments` | P1 |
 | `Booking` | Đặt lịch online | `/dat-lich` | P1 |
+| `Booking` | Khách tra cứu, hủy lịch đã đặt | `/dat-lich/tra-cuu` | P2 |
 | `Booking` | Dịch vụ, bảng giá | `/services` | P1 |
 | `Booking` | Gói liệu trình, trừ buổi | `/packages` | P1 |
 | `Booking` | Thanh toán | `/appointments/[id]` | P1 |
+| `Hr` | Nhân viên, lịch làm việc, giờ mở cửa | `/staff` | P1 |
 | `Hr` | Hoa hồng nhân viên | `/commissions` | P1 |
+| `Hr` | Lịch và hoa hồng của tôi (kỹ thuật viên) | `/my-schedule` | P2 |
 | `Crm` | Hồ sơ khách | `/customers` | P2 |
 | `Booking` | Báo cáo doanh thu | `/reports` | P2 |
 
