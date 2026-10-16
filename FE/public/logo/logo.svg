@@ -1,6 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Logo">
-  <rect width="64" height="64" rx="14" fill="#2563EB"/>
-  <path d="M18 22.5 32 15l14 7.5-14 7.5-14-7.5Z" fill="#FFFFFF"/>
-  <path d="m18 32 14 7.5L46 32" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
-  <path d="m18 41.5 14 7.5 14-7.5" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity=".6"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 64" role="img" aria-label="Lam Ngọc Spa">
+  <rect width="64" height="64" rx="14" fill="#0F766E"/>
+  <path d="M32 14c5.2 4.6 7.6 10 7.6 15.6S37 40.7 32 45c-5-4.3-7.6-9.8-7.6-15.4S26.8 18.6 32 14Z" fill="#FFFFFF"/>
+  <path d="M14.5 26.5c6.6.6 11.6 3.6 14.8 8.4 1.4 2.2 2.3 4.9 2.7 8.1-3.4.6-6.9.2-10-1.4-5.1-2.6-7.6-7.9-7.5-15.1Z" fill="#99F6E4"/>
+  <path d="M49.5 26.5c-6.6.6-11.6 3.6-14.8 8.4-1.4 2.2-2.3 4.9-2.7 8.1 3.4.6 6.9.2 10-1.4 5.1-2.6 7.6-7.9 7.5-15.1Z" fill="#99F6E4"/>
+  <path d="M15 47.5c5.6 1.9 11.3 2.6 17 2.6s11.4-.7 17-2.6" fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round"/>
+  <text x="78" y="43" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#0F766E" letter-spacing="-0.5">Lam Ngọc Spa</text>
 </svg>

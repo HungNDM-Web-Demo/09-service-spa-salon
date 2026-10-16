@@ -26,7 +26,7 @@ public sealed class MatchesFunctionTests : IAsyncLifetime
     [Theory]
     [InlineData("MINH", "admin")]
     [InlineData("minh", "admin")]
-    [InlineData("mAi", "quanly")]
+    [InlineData("DIệP", "quanly")]
     [InlineData("NHANVIEN@EXAMPLE", "nhanvien")]
     [InlineData("0123456783", "nhanvien")]
     public async Task Search_IsCaseInsensitiveForAscii(string search, string expectedUsername)

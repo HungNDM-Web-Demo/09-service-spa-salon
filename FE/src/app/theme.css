@@ -39,6 +39,8 @@
   --success-foreground: #ffffff;
   --warning: #b45309;
   --warning-foreground: #ffffff;
+  /* Lịch chờ xác nhận trên lưới (viền nét đứt, nền vàng; quá 30 phút thì dùng --cta) */
+  --pending: #ca8a04;
   --info: #0369a1;
   --info-foreground: #ffffff;
 
@@ -88,6 +90,7 @@
   --success-foreground: #0b1220;
   --warning: #fbbf24;
   --warning-foreground: #0b1220;
+  --pending: #facc15;
   --info: #38bdf8;
   --info-foreground: #0b1220;
 

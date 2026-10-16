@@ -23,6 +23,17 @@ public sealed class UpdateSettingsRequestValidator : AppValidator<UpdateSettings
             item.RuleFor(i => i.Value)
                 .NotNull().WithMessage("Giá trị không được để trống.")
                 .MaximumLength(Setting.ValueMaxLength).WithMessage($"Giá trị tối đa {Setting.ValueMaxLength} ký tự.");
+
+            // Khóa riêng của tiệm (docs/06 §3), cùng quy tắc với FE config/setting-labels.ts
+            item.RuleFor(i => i.Value)
+                .Must(v => !string.IsNullOrWhiteSpace(v)).WithMessage("Nhập tên tiệm.")
+                .When(i => i.Key == "Store.Name");
+            item.RuleFor(i => i.Value)
+                .Matches(@"^\d{6}$").WithMessage("Mã ngân hàng gồm 6 chữ số.")
+                .When(i => i.Key == "Store.BankBin" && !string.IsNullOrWhiteSpace(i.Value));
+            item.RuleFor(i => i.Value)
+                .Matches(@"^\d{6,19}$").WithMessage("Số tài khoản gồm 6 đến 19 chữ số.")
+                .When(i => i.Key == "Store.BankAccount" && !string.IsNullOrWhiteSpace(i.Value));
         });
     }
 }

@@ -1,9 +1,142 @@
 {
-  "$comment": "Phần riêng của dự án, ghép thêm vào system.json khi seed (FE mock và BE SystemSeeder). permissions: quyền nghiệp vụ; roles: vai trò riêng (vd CASHIER); roleGrants: quyền cấp thêm cho vai trò có sẵn; users: tài khoản demo thêm, trùng username thì ghi đè các trường khai báo; roles trùng code thì ghi đè tên, mô tả; settings: ghi đè giá trị cài đặt nền theo khóa; homeAfterLogin: trang mở sau khi đăng nhập (chỉ FE).",
-  "permissions": [],
-  "roles": [],
-  "roleGrants": {},
-  "users": [],
-  "settings": [],
+  "$comment": "Phần riêng của dự án, ghép thêm vào system.json khi seed (FE mock và BE SystemSeeder). Quyền, vai trò: docs/07-DANH-SACH-API.md §1; cài đặt: docs/06-THIET-KE-CSDL.md §3.",
+  "permissions": [
+    { "code": "services.view", "groupName": "Dịch vụ", "name": "Xem dịch vụ, bảng giá", "sortOrder": 200 },
+    { "code": "services.create", "groupName": "Dịch vụ", "name": "Thêm nhóm dịch vụ, dịch vụ", "sortOrder": 201 },
+    { "code": "services.update", "groupName": "Dịch vụ", "name": "Sửa, ẩn dịch vụ, đổi giá, mức hoa hồng", "sortOrder": 202 },
+    { "code": "services.delete", "groupName": "Dịch vụ", "name": "Xóa nhóm dịch vụ, dịch vụ chưa phát sinh", "sortOrder": 203 },
+    { "code": "staff-members.view", "groupName": "Nhân viên", "name": "Xem nhân viên, lịch làm việc", "sortOrder": 210 },
+    { "code": "staff-members.create", "groupName": "Nhân viên", "name": "Thêm nhân viên", "sortOrder": 211 },
+    { "code": "staff-members.update", "groupName": "Nhân viên", "name": "Sửa nhân viên, lịch tuần, ngày nghỉ, giờ mở cửa", "sortOrder": 212 },
+    { "code": "staff-members.delete", "groupName": "Nhân viên", "name": "Xóa nhân viên chưa phát sinh", "sortOrder": 213 },
+    { "code": "appointments.view", "groupName": "Lịch hẹn", "name": "Xem lưới lịch hẹn của mọi kỹ thuật viên", "sortOrder": 220 },
+    { "code": "appointments.view-own", "groupName": "Lịch hẹn", "name": "Xem lịch của chính mình", "sortOrder": 221 },
+    { "code": "appointments.create", "groupName": "Lịch hẹn", "name": "Tạo lịch hẹn", "sortOrder": 222 },
+    { "code": "appointments.update", "groupName": "Lịch hẹn", "name": "Xác nhận, đổi giờ, kéo thả, check-in, thêm dịch vụ, đánh dấu không đến", "sortOrder": 223 },
+    { "code": "appointments.cancel", "groupName": "Lịch hẹn", "name": "Hủy lịch hẹn", "sortOrder": 224 },
+    { "code": "invoices.create", "groupName": "Thanh toán", "name": "Thanh toán, trừ buổi, in hóa đơn", "sortOrder": 230 },
+    { "code": "invoices.discount", "groupName": "Thanh toán", "name": "Giảm giá tối đa 10%", "sortOrder": 231 },
+    { "code": "invoices.discount-high", "groupName": "Thanh toán", "name": "Giảm giá trên 10%, tối đa 50%", "sortOrder": 232 },
+    { "code": "invoices.cancel", "groupName": "Thanh toán", "name": "Hủy hóa đơn", "sortOrder": 233 },
+    { "code": "packages.view", "groupName": "Gói liệu trình", "name": "Xem gói mẫu", "sortOrder": 240 },
+    { "code": "packages.create", "groupName": "Gói liệu trình", "name": "Thêm gói mẫu", "sortOrder": 241 },
+    { "code": "packages.update", "groupName": "Gói liệu trình", "name": "Sửa, ngừng bán gói mẫu", "sortOrder": 242 },
+    { "code": "packages.delete", "groupName": "Gói liệu trình", "name": "Xóa gói mẫu chưa bán", "sortOrder": 243 },
+    { "code": "customer-packages.view", "groupName": "Gói liệu trình", "name": "Xem gói của khách, lịch sử trừ buổi", "sortOrder": 244 },
+    { "code": "customer-packages.sell", "groupName": "Gói liệu trình", "name": "Bán gói", "sortOrder": 245 },
+    { "code": "customer-packages.extend", "groupName": "Gói liệu trình", "name": "Gia hạn gói của khách", "sortOrder": 246 },
+    { "code": "commissions.view", "groupName": "Hoa hồng", "name": "Xem bảng hoa hồng mọi nhân viên", "sortOrder": 250 },
+    { "code": "commissions.view-own", "groupName": "Hoa hồng", "name": "Xem hoa hồng của chính mình", "sortOrder": 251 },
+    { "code": "commissions.close", "groupName": "Hoa hồng", "name": "Chốt bảng, đánh dấu đã chi trả", "sortOrder": 252 },
+    { "code": "customers.view", "groupName": "Khách hàng", "name": "Tra cứu hồ sơ khách", "sortOrder": 260 },
+    { "code": "customers.create", "groupName": "Khách hàng", "name": "Thêm khách", "sortOrder": 261 },
+    { "code": "customers.update", "groupName": "Khách hàng", "name": "Sửa hồ sơ khách", "sortOrder": 262 },
+    { "code": "reports.view", "groupName": "Báo cáo", "name": "Xem báo cáo, xuất Excel", "sortOrder": 270 }
+  ],
+  "roles": [
+    {
+      "code": "MANAGER",
+      "name": "Chủ tiệm",
+      "description": "Dịch vụ, gói, lịch làm việc kỹ thuật viên, giảm giá lớn, hủy hóa đơn, chốt hoa hồng, báo cáo"
+    },
+    {
+      "code": "STAFF",
+      "name": "Lễ tân",
+      "description": "Nhận lịch, xếp kỹ thuật viên, check-in, thu tiền, bán gói"
+    },
+    {
+      "code": "TECHNICIAN",
+      "name": "Kỹ thuật viên",
+      "description": "Xem lịch làm và hoa hồng của chính mình trên điện thoại",
+      "permissions": ["services.view", "appointments.view-own", "commissions.view-own"]
+    }
+  ],
+  "roleGrants": {
+    "MANAGER": [
+      "services.view",
+      "services.create",
+      "services.update",
+      "services.delete",
+      "staff-members.view",
+      "staff-members.create",
+      "staff-members.update",
+      "staff-members.delete",
+      "appointments.view",
+      "appointments.create",
+      "appointments.update",
+      "appointments.cancel",
+      "invoices.create",
+      "invoices.discount",
+      "invoices.discount-high",
+      "invoices.cancel",
+      "packages.view",
+      "packages.create",
+      "packages.update",
+      "packages.delete",
+      "customer-packages.view",
+      "customer-packages.sell",
+      "customer-packages.extend",
+      "commissions.view",
+      "commissions.close",
+      "customers.view",
+      "customers.create",
+      "customers.update",
+      "reports.view"
+    ],
+    "STAFF": [
+      "services.view",
+      "staff-members.view",
+      "appointments.view",
+      "appointments.create",
+      "appointments.update",
+      "appointments.cancel",
+      "invoices.create",
+      "invoices.discount",
+      "packages.view",
+      "customer-packages.view",
+      "customer-packages.sell",
+      "customers.view",
+      "customers.create",
+      "customers.update"
+    ]
+  },
+  "users": [
+    {
+      "username": "admin",
+      "description": "Phân quyền tới từng nút, tài khoản, thương hiệu và thông tin tiệm"
+    },
+    {
+      "username": "quanly",
+      "fullName": "Lâm Ngọc Diệp",
+      "description": "Chủ tiệm: tổng quan, dịch vụ, gói, lịch làm việc, hoa hồng, báo cáo"
+    },
+    {
+      "username": "nhanvien",
+      "fullName": "Phạm Ngọc Quỳnh",
+      "description": "Lễ tân: lịch hẹn, xác nhận, kéo thả, check-in, thanh toán, bán gói"
+    },
+    {
+      "username": "kythuatvien",
+      "fullName": "Lê Hoàng Yến",
+      "email": "kythuatvien@example.com",
+      "phone": "0123456784",
+      "roles": ["TECHNICIAN"],
+      "isDemoAccount": true,
+      "quickLogin": true,
+      "sortOrder": 4,
+      "description": "Kỹ thuật viên: lịch làm và hoa hồng của tôi trên điện thoại"
+    }
+  ],
+  "settings": [
+    { "key": "Brand.AppName", "value": "Lam Ngọc Spa", "groupName": "Thương hiệu" },
+    { "key": "Brand.LogoUrl", "value": "/logo/logo-mark.svg", "groupName": "Thương hiệu" },
+    { "key": "Brand.PrimaryColor", "value": "#0F766E", "groupName": "Thương hiệu" },
+    { "key": "Store.Name", "value": "Lam Ngọc Spa & Nail", "groupName": "Thông tin tiệm" },
+    { "key": "Store.Address", "value": "86 Lê Đình Dương, Hải Châu, Đà Nẵng", "groupName": "Thông tin tiệm" },
+    { "key": "Store.Hotline", "value": "0905 286 168", "groupName": "Thông tin tiệm" },
+    { "key": "Store.BankBin", "value": "970436", "groupName": "Thông tin tiệm" },
+    { "key": "Store.BankAccount", "value": "0000000000", "groupName": "Thông tin tiệm" },
+    { "key": "Store.BankAccountName", "value": "LAM NGOC SPA", "groupName": "Thông tin tiệm" }
+  ],
   "homeAfterLogin": "/dashboard"
 }
